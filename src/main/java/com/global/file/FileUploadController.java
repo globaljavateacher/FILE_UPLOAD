@@ -47,7 +47,7 @@ public class FileUploadController extends HttpServlet {
                         	if ( null == item.getName() || "".equals(item.getName()) ) {
                         		continue;
                         	}
-                        	String newFileName = UUID.randomUUID().toString() + FilenameUtils.getExtension(item.getName());
+                        	String newFileName = UUID.randomUUID().toString() + "." + FilenameUtils.getExtension(item.getName());
                             item.write(Path.of(uploadPath, new File(newFileName).getName()));
                             fileMap.put(newFileName, item.getName());
                         }
@@ -62,3 +62,4 @@ public class FileUploadController extends HttpServlet {
 	}
 	
 }
+
